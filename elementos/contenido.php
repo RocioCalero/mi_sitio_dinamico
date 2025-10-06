@@ -3,7 +3,8 @@
 $productos = [
   "Pan de Camas"        => 1.20,
   "Aceitunas aliñadas"  => 2.50,
-  "Tortas de aceite"    => 3.00
+  "Tortas de aceite"    => 3.00, 
+  "Leche chocalatada"   => 1.20
 ];
 ?>
 
@@ -18,9 +19,12 @@ $productos = [
   </thead>
   <tbody>
     <?php 
-      for ($i = 0; $i < count($productos); $i++ ){
+      $productos_total = count($productos);
+      echo $productos_total;
+      print_r(array_keys($productos));
+      /*for ($i = 0; $i < count($productos); $i++ ){
         echo "<tr><td>". $productos[$i] ."</td></tr>";
-      }
+      }*/
     ?>
   </tbody>
 </table>
