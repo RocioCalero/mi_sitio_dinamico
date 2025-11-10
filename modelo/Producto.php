@@ -19,7 +19,9 @@ class Producto extends Entidad
   
     public function __construct(
     public string $nombre,
-    public float $precio
+    public float $precio,
+    public int $stock,
+    public string $descripcion
   ) {}
   
     public static function vacio(): self
@@ -37,5 +39,16 @@ class Producto extends Entidad
             'nombre'  => $this->nombre,
             'precio'     => $this->precio
         ];
+    }
+
+    /*Get Y Set de Stock*/
+    public function getStock(int $stock): void {
+        return $this-> stock;
+    }
+    public function setStock(int $stock): void{
+        if ($stock < 0){
+            throw new InvalidArgumentException("El stock no puede ser negativo");
+        }
+        $this->stock = $stock;
     }
 }
