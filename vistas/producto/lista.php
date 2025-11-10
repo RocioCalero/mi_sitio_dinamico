@@ -20,6 +20,8 @@ $esManager = ($rol === 'manager');
     <tr>
       <th>Producto</th>
       <th>Precio (€)</th>
+      <th>Stock</th>
+      <th>Descripción</th>
       <?php if ($esManager): ?><th>Acciones</th><?php endif; ?>
     </tr>
   </thead>
@@ -44,5 +46,12 @@ $esManager = ($rol === 'manager');
   <?php if (empty($productos)): ?>
     <tr><td colspan="<?= $esManager ? 3 : 2 ?>" class="text-center text-muted">No hay productos aún.</td></tr>
   <?php endif; ?>
+ <?php if ($producto->getStock() <= 5): ?>
+    <span class="badge bg-danger"><?= $producto->getStock() ?></span>
+  <?php else: ?>
+    <?= $producto->getStock() ?>
+  <?php endif; ?>
+</td>
+  <td><?= htmlspecialchars(mb_strimwidth($producto->getDescripcion(), 0, 60, '...')) ?></td>
   </tbody>
 </table>
