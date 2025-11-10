@@ -37,12 +37,14 @@ class Producto extends Entidad
         return [
             'id'      => $this->getId(),
             'nombre'  => $this->nombre,
-            'precio'     => $this->precio
+            'precio'     => $this->precio,
+            'descripcion'  => $this->descripcion,
+            'stock'   => $this->stock
         ];
     }
 
     /*Get Y Set de Stock*/
-    public function getStock(int $stock): void {
+    public function getStock(): void {
         return $this-> stock;
     }
     public function setStock(int $stock): void{
@@ -50,5 +52,16 @@ class Producto extends Entidad
             throw new InvalidArgumentException("El stock no puede ser negativo");
         }
         $this->stock = $stock;
+    }
+
+    /*Get y Set de Descripcion*/
+       public function getDescripcion():string {
+        return $this-> descripcion;
+    }
+    public function setDescripcion(string $descripcion): void{
+        if (strlen($descripcion) > 500){
+            throw new InvalidArgumentException("La descripción no puede superar los 500 caracteres");
+        }
+        $this->descripcion = $descripcion;
     }
 }
