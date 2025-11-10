@@ -17,12 +17,17 @@ require_once __DIR__ . '/Entidad.php';
 class Producto extends Entidad
 {
   
-    public function __construct(
+public function __construct(
     public string $nombre,
     public float $precio,
     public int $stock,
     public string $descripcion
-  ) {}
+  ) {
+        $this->nombre = $nombre;
+        $this->precio = $precio;
+        $this->stock = $stock;
+        $this->descripcion = $descripcion;
+  }
   
     public static function vacio(): self
     {

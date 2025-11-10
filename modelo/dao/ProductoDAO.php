@@ -13,7 +13,7 @@ final class ProductoDAO extends DAO
 
     /** @return Producto */
     protected function crearEntidad(array $fila): object {
-        $p = new Producto($fila['nombre'], (float)$fila['precio']);
+        $p = new Producto($fila['nombre'], (float)$fila['precio'],$fila['descripcion'],(int)$fila['stock']);
         if (isset($fila['id'])) { $p->setId((int)$fila['id']); }
         return $p;
     }

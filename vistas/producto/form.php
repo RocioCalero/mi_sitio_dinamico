@@ -41,3 +41,17 @@ $valId     = $esEdicion ? (int)$producto->getId() : 0;
     <a class="btn btn-secondary" href="index.php?p=contenido">Cancelar</a>
   </div>
 </form>
+
+<div class="mb-3">
+  <label for="stock" class="form-label">Stock</label>
+  <input type="number" class="form-control <?= isset($errores['stock']) ? 'is-invalid' : '' ?>"
+         id="stock" name="stock" min="0" value="<?= htmlspecialchars($producto->getStock()) ?>">
+  <div class="invalid-feedback"><?= $errores['stock'] ?? '' ?></div>
+</div>
+
+<div class="mb-3">
+  <label for="descripcion" class="form-label">Descripción</label>
+  <textarea class="form-control <?= isset($errores['descripcion']) ? 'is-invalid' : '' ?>"
+            id="descripcion" name="descripcion" rows="3"><?= htmlspecialchars($producto->getDescripcion()) ?></textarea>
+  <div class="invalid-feedback"><?= $errores['descripcion'] ?? '' ?></div>
+</div>
