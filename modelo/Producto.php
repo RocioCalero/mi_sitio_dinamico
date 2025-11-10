@@ -44,7 +44,7 @@ class Producto extends Entidad
     }
 
     /*Get Y Set de Stock*/
-    public function getStock(): void {
+    public function getStock():int {
         return $this-> stock;
     }
     public function setStock(int $stock): void{
